@@ -8,6 +8,12 @@
         body {
             background-color: red;
         }
+        
+        .signup {
+            width: 80%;
+            height: 200px;
+            background-color: white;
+        }
     
     </style>
 </head>
