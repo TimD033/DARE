@@ -12,6 +12,13 @@
     </style>
 </head>
 <body>
+    <div class="content">
+    
+    <div class="signup">signup</div>
+        <div class="login">login</div>
+    
+    </div>
+    
     
 </body>
 
