@@ -174,6 +174,19 @@ body {
     font-weight: 300;
             width: 80%;
 }
+        
+        
+        
+        .logindiv {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+        }
 
         
 
@@ -215,7 +228,47 @@ body {
 
 
     <script>
-    
+        function login() {
+            var login = document.createElement("div");
+            var logintitle = document.createElement("p");
+            var slogan = document.createElement("p");
+            var form = document.createElement("form");
+            var username = document.createElement("input");
+            var passwd = document.createElement("input");
+            var submit = document.createElement("input");
+            
+            
+            
+            
+            
+            
+
+            
+            
+            login.className = "logindiv";
+            logintitle.className = "logintitle";
+            slogan.className = "slogan";
+            form.action = "login.php";
+            form.method = "post";
+            username.type = "text"
+            passwd.type = "text"
+            username.name = "username"
+            passwd.name = "passwd"
+            
+            
+            
+            document.body.appendChild(login);
+            login.appendChild(logintitle);
+            login.appendChild(slogan);
+            login.appendChild(form);
+            form.appendChild(username);
+            form.appendChild(passwd);
+            form.appendChild(submit);
+   
+            
+            
+            
+        }
     
     </script>
 </body>
