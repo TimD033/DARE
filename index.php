@@ -185,7 +185,7 @@ body {
             bottom: 0;
             width: 100%;
             height: 100%;
-            background-color: blue;
+            background: -webkit-linear-gradient(top, rgba(59,152,214,1) 0%,rgba(34,37,124,1) 100%);
         }
         .signDiv{
             position: absolute;
@@ -195,9 +195,23 @@ body {
             bottom: 0;
             width: 100%;
             height: 100%;
-            background-color: blue;
+            background: -webkit-linear-gradient(top, rgba(59,152,214,1) 0%,rgba(34,37,124,1) 100%);
         }
-
+        .logindiv input{
+            height: 100px;
+            width: 600px;
+            border: none;
+            background-color: rgba(255,255,255,0.7);
+            position: relative;
+            top: 750px;
+            left: 170px;
+            text-align: center;
+            margin: 20px;
+            border-radius: 15px;
+        }
+        .logindiv input[type=submit]{
+            background-color: lightgreen;
+        }
 
         
 
@@ -236,9 +250,12 @@ body {
             form.action = "login.php";
             form.method = "post";
             username.type = "text";
-            passwd.type = "text";
+            passwd.type = "password";
+            submit.type = "submit";
             username.name = "username";
             passwd.name = "passwd";
+            username.placeholder = "Username";
+            passwd.placeholder = "Password";
 
 
 
@@ -269,18 +286,18 @@ body {
             form.action = "signUp.php";
             form.method = "post";
             usernm.type = "text";
-            password.type = "text";
-            password2.type = "text";
+            password.type = "password";
+            password2.type = "password";
             email.type = "text";
             submit.type = "submit";
             usernm.name = "usernm";
             password.name = "password";
             password2.name = "password2";
             email.name = "email";
-            usernm.value = "Username";
-            password.value = "Password";
-            password2.value = "Password again";
-            email.value = "Email";
+            usernm.placeholder = "Username";
+            password.placeholder = "Password";
+            password2.placeholder = "Password again";
+            email.placeholder = "Email";
 
 
             document.body.appendChild(sign);
