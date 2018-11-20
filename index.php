@@ -216,7 +216,7 @@ body {
     <div class="gradient"></div>
 
         
-<img id="sign" src="signup.png">
+<img onclick="signUp()" id="sign" src="signup.png">
     <img onclick="login()" id="login" src="login.png">
     <img id="logo" src="logo1.png">
     
@@ -250,10 +250,10 @@ body {
             slogan.className = "slogan";
             form.action = "login.php";
             form.method = "post";
-            username.type = "text"
-            passwd.type = "text"
-            username.name = "username"
-            passwd.name = "passwd"
+            username.type = "text";
+            passwd.type = "text";
+            username.name = "username";
+            passwd.name = "passwd";
             
             
             
@@ -264,10 +264,50 @@ body {
             form.appendChild(username);
             form.appendChild(passwd);
             form.appendChild(submit);
-   
-            
-            
-            
+
+        }
+
+        function signUp() {
+            var sign = document.createElement("div");
+            var signtitle = document.createElement("p");
+            var slogan = document.createElement("p");
+            var form = document.createElement("form");
+            var usernm = document.createElement("input");
+            var password = document.createElement("input");
+            var password2 = document.createElement("input");
+            var email = document.createElement("input");
+            var submit = document.createElement("input");
+
+            sign.className = "signDiv";
+            signtitle.className = "signtitle";
+            slogan.className = "slogan";
+            form.action = "signUp.php";
+            form.method = "post";
+            usernm.type = "text";
+            password.type = "text";
+            password2.type = "text";
+            email.type = "text";
+            submit.type = "submit";
+            usernm.name = "usernm";
+            password.name = "password";
+            password2.name = "password2";
+            email.name = "email";
+            usernm.value = "Username";
+            password.value = "Password";
+            password2.value = "Password again";
+            email.value = "Email";
+
+
+            document.body.appendChild(sign);
+            sign.appendChild(signtitle);
+            sign.appendChild(slogan);
+            sign.appendChild(form);
+            sign.appendChild(usernm);
+            sign.appendChild(password);
+            sign.appendChild(password2);
+            sign.appendChild(email);
+            sign.appendChild(submit);
+        
         }
     
     </script>
