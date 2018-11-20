@@ -291,7 +291,7 @@ body {
             form.appendChild(password);
             form.appendChild(password2);
             form.appendChild(email);
-            form.appendChild(submit);s
+            form.appendChild(submit);
 
         }
     </script>
