@@ -197,18 +197,31 @@ body {
             height: 100%;
             background: -webkit-linear-gradient(top, rgba(59,152,214,1) 0%,rgba(34,37,124,1) 100%);
         }
-        .logindiv input{
-            height: 100px;
-            width: 600px;
-            border: none;
-            background-color: rgba(255,255,255,0.7);
-            position: relative;
-            top: 750px;
-            left: 170px;
-            text-align: center;
-            margin: 20px;
-            border-radius: 15px;
-        }
+.logindiv input {
+    height: 100px;
+    width: 600px;
+    border: none;
+    background-color: rgba(255,255,255,0.7);
+    position: relative;
+    top: 750px;
+    left: 170px;
+    margin: 20px;
+    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 60px;
+    padding: 0px 26px;
+}
+        
+        
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #4e4e4e;
+    opacity: 1; /* Firefox */
+}
+
+
+
+
         .logindiv input[type=submit]{
             background-color: lightgreen;
         }
