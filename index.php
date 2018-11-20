@@ -187,6 +187,17 @@ body {
             height: 100%;
             background-color: blue;
         }
+        .signDiv{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+        }
+
 
         
 
@@ -201,32 +212,6 @@ body {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
-    </head>
-
-<body>
-
-
-
-    <div class="video">
-        <video id="myVideo" autoplay loop muted playsinline>
-            <source src="vid/vidd.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="bg"></div>
-    <div class="gradient"></div>
-
-        
-<img onclick="signUp()" id="sign" src="signup.png">
-    <img onclick="login()" id="login" src="login.png">
-    <img id="logo" src="logo1.png">
-    
-    
-
-<p id="footer">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
-     
-
-
-
     <script>
         function login() {
             var login = document.createElement("div");
@@ -236,15 +221,15 @@ body {
             var username = document.createElement("input");
             var passwd = document.createElement("input");
             var submit = document.createElement("input");
-            
-            
-            
-            
-            
-            
 
-            
-            
+
+
+
+
+
+
+
+
             login.className = "logindiv";
             logintitle.className = "logintitle";
             slogan.className = "slogan";
@@ -254,9 +239,9 @@ body {
             passwd.type = "text";
             username.name = "username";
             passwd.name = "passwd";
-            
-            
-            
+
+
+
             document.body.appendChild(login);
             login.appendChild(logintitle);
             login.appendChild(slogan);
@@ -307,10 +292,36 @@ body {
             sign.appendChild(password2);
             sign.appendChild(email);
             sign.appendChild(submit);
-        
+
         }
-    
     </script>
+    </head>
+
+<body>
+
+
+
+    <div class="video">
+        <video id="myVideo" autoplay loop muted playsinline>
+            <source src="vid/vidd.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="bg"></div>
+    <div class="gradient"></div>
+
+        
+<img onclick="signUp()" id="sign" src="signup.png">
+    <img onclick="login()" id="login" src="login.png">
+    <img id="logo" src="logo1.png">
+    
+    
+
+<p id="footer">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </p>
+     
+
+
+
+
 </body>
 
 </html>
