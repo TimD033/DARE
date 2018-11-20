@@ -287,11 +287,11 @@ body {
             sign.appendChild(signtitle);
             sign.appendChild(slogan);
             sign.appendChild(form);
-            sign.appendChild(usernm);
-            sign.appendChild(password);
-            sign.appendChild(password2);
-            sign.appendChild(email);
-            sign.appendChild(submit);
+            form.appendChild(usernm);
+            form.appendChild(password);
+            form.appendChild(password2);
+            form.appendChild(email);
+            form.appendChild(submit);s
 
         }
     </script>
