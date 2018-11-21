@@ -185,7 +185,7 @@ body {
             bottom: 0;
             width: 100%;
             height: 100%;
-            background: -webkit-linear-gradient(top, rgba(59,152,214,1) 0%,rgba(34,37,124,1) 100%);
+            background: -webkit-linear-gradient(top, rgba(59,152,214,.7) 0%,rgba(34,37,124,.7) 100%);
         }
         .signDiv{
             position: absolute;
@@ -250,8 +250,11 @@ body {
             var submit = document.createElement("input");
 
 
-
-
+            $("#logo").fadeOut();
+            $("#sign").fadeOut();
+            $("#login").fadeOut();
+            $(".gradient").fadeOut();
+            
 
 
 
@@ -269,6 +272,7 @@ body {
             passwd.name = "passwd";
             username.placeholder = "Username";
             passwd.placeholder = "Password";
+            login.style = "display:none"
 
 
 
@@ -279,6 +283,8 @@ body {
             form.appendChild(username);
             form.appendChild(passwd);
             form.appendChild(submit);
+            
+            $(".logindiv").fadeIn();
 
         }
 
