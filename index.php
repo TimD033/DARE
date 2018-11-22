@@ -1,5 +1,5 @@
 <html manifest="manifest.manifest">
-
+<?php include 'login.php'; include 'signUp.php'?>
 <head>
 
     <link rel="apple-touch-icon" href="icon.png">
@@ -205,14 +205,15 @@ body {
                 backdrop-filter: blur(20px);
         }
         .signDiv{
-            position: absolute;
+            position: fixed;
             left: 0;
             right: 0;
             top: 0;
             bottom: 0;
             width: 100%;
             height: 100%;
-            background: -webkit-linear-gradient(top, rgba(59,152,214,1) 0%,rgba(34,37,124,1) 100%);
+            background: #fffdfd36;
+            backdrop-filter: blur(20px);
         }
 .logindiv input {
     height: 110px;
@@ -259,6 +260,34 @@ body {
     margin-top: 50px;
     color: #c7c7c7;
 }
+        .signDiv input [type=submit] {
+            background-color: #67676763;
+            margin-top: 50px;
+            color: #c7c7c7;
+        }
+
+        .signDiv input {
+            height: 110px;
+            width: 655px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.27);
+            border-radius: 6px;
+            font-family: 'Roboto', sans-serif;
+            box-shadow: #00000030 1px 1px 20px;
+            font-weight: 100;
+            font-size: 60px;
+            padding: 0px 26px;
+            left: 0;
+            display: block;
+            right: 0;
+            margin: 24px auto;
+        }
+
+        .signDiv form{
+            margin-top: 65%;
+        }
+        
+
 
         
 
@@ -309,7 +338,8 @@ body {
             passwd.name = "passwd";
             username.placeholder = "Username";
             passwd.placeholder = "Password";
-            login.style = "display:none"
+            submit.value = "Send";
+            login.style = "display:none";
 
 
 
@@ -336,6 +366,16 @@ body {
             var email = document.createElement("input");
             var submit = document.createElement("input");
 
+            $("#logo").fadeOut();
+            $("#sign").fadeOut();
+            $("#login").fadeOut();
+            $(".gradient").fadeOut();
+
+            $("#logo").fadeOut();
+            $(".bg").fadeOut();
+
+            document.getElementById("myVideo").style.filter = "blur(20px)";
+
             sign.className = "signDiv";
             signtitle.className = "signtitle";
             slogan.className = "slogan";
@@ -354,6 +394,8 @@ body {
             password.placeholder = "Password";
             password2.placeholder = "Password again";
             email.placeholder = "Email";
+            submit.value = "Send";
+            sign.style = "display:none";
 
 
             document.body.appendChild(sign);
@@ -365,6 +407,8 @@ body {
             form.appendChild(password2);
             form.appendChild(email);
             form.appendChild(submit);
+
+            $(".signDiv").fadeIn();
 
         }
         
