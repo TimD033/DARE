@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="viewport" content="user-scalable=no" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500" rel="stylesheet">
    
     <link rel="apple-touch-startup-image" href="https://via.placeholder.com/640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
 
@@ -33,6 +33,11 @@
             background-color: black;
         }
         
+        body,
+html {
+  position: fixed;
+}
+        
             #myVideo {
     position: fixed;
     top: 0;
@@ -54,6 +59,17 @@
                 margin: auto;
                 display: flex;
                 justify-content: center;
+                
+                
+                
+                position: fixed;
+
+
+ 
+ transform: scale(1.1); 
+                
+                
+                
             }
         
             .bg {
@@ -87,7 +103,7 @@
 
         
 #sign {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     margin: auto;
@@ -111,7 +127,7 @@
 }
         
 #login {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     margin: auto;
@@ -135,7 +151,7 @@
 }
         
     #logo {
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     margin: auto;
@@ -162,7 +178,7 @@ body {
 }
 
         #footer {
-    position: absolute;
+    position: fixed;
     color: #fff6b3;
     bottom: 29px;
     text-align: center;
@@ -178,14 +194,15 @@ body {
         
         
         .logindiv {
-            position: absolute;
+            position: fixed;
             left: 0;
             right: 0;
             top: 0;
             bottom: 0;
             width: 100%;
             height: 100%;
-            background: -webkit-linear-gradient(top, rgba(59,152,214,.7) 0%,rgba(34,37,124,.7) 100%);
+            background: #fffdfd36;
+                backdrop-filter: blur(20px);
         }
         .signDiv{
             position: absolute;
@@ -198,33 +215,50 @@ body {
             background: -webkit-linear-gradient(top, rgba(59,152,214,1) 0%,rgba(34,37,124,1) 100%);
         }
 .logindiv input {
-    height: 100px;
-    width: 600px;
+    height: 110px;
+    width: 655px;
     border: none;
-    background-color: rgba(255,255,255,0.7);
-    position: relative;
-    top: 750px;
-    left: 170px;
-    margin: 20px;
-    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.27);
+    border-radius: 6px;
     font-family: 'Roboto', sans-serif;
+    box-shadow: #00000030 1px 1px 20px;
     font-weight: 100;
     font-size: 60px;
     padding: 0px 26px;
+    left: 0;
+    display: block;
+    right: 0;
+    margin: 24px auto;
 }
+
+        input[type="submit"] {
+         margin-top 50px!important; 
+            
+        }
+        
+        
+        form {
+            
+                margin-top: 851px;
+            
+        }
         
         
         ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #4e4e4e;
+    color: #e0e0e0;
     opacity: 1; /* Firefox */
+            font-family: 'Roboto', sans-serif;
+    font-weight: 100;
 }
 
 
 
 
-        .logindiv input[type=submit]{
-            background-color: lightgreen;
-        }
+        .logindiv input[type=submit] {
+    background-color: #67676763;
+    margin-top: 50px;
+    color: #c7c7c7;
+}
 
         
 
@@ -255,8 +289,11 @@ body {
             $("#login").fadeOut();
             $(".gradient").fadeOut();
             
-
-
+            $("#logo").fadeOut();
+            $(".bg").fadeOut();
+            
+            document.getElementById("myVideo").style.filter = "blur(20px)";
+            
 
 
 
@@ -330,10 +367,14 @@ body {
             form.appendChild(submit);
 
         }
+        
+        
+        
+        
     </script>
     </head>
 
-<body>
+<body scroll="no" style="overflow: hidden">
 
 
 
