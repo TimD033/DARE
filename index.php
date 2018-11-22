@@ -1,5 +1,5 @@
 <html manifest="manifest.manifest">
-
+<?php include 'login.php'; include 'signUp.php'?>
 <head>
 
     <link rel="apple-touch-icon" href="icon.png">
