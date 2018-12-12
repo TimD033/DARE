@@ -1,0 +1,9 @@
+@charset "utf-8";
+	.NormalCharacterStyle
+{
+	font-family : Horizon;
+	font-style : italic;
+	font-size : 122pt;
+	color : #D9E4F1;
+	color : rgb(217, 228, 241);
+}
