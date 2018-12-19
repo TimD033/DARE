@@ -27,10 +27,9 @@
 
 
     <style>
-        * {
-            -webkit-user-select: none;
-
-        }
+        *:not(input) {
+  user-select: none;
+}
 
         body {
             background-color: #2a4644;
