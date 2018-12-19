@@ -358,69 +358,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<body>
+<body onload="home()">
     <div class="bg"></div>
 
-    <div class="container">
-        <div class="nav">
-            <div id="fyou">For you</div>
-            <div class="notify"></div>
-            <div id="popul">Popular</div>
-        </div>
-        <div class="featured">
-            <div class="f-content">
-                <div class="new">new</div>
-                <div class="f-text">Placeholder</div>
-            </div>
-            <div class="f-content">
-                <div class="new">new</div>
-                <div class="f-text">Placeholder</div>
-            </div>
-            <div class="f-content">
-                <div class="new">new</div>
-                <div class="f-text">Placeholder</div>
-            </div>
-            <div class="f-content-more">
-                <div class="f-text-more">+5<br>more</div>
-            </div>
-            <div class="plus">></div>
-        </div>
-        <div class="line-green"></div>
-        <div class="categories">
-            <div class="cats">Placeholder</div>
-            <div class="cats">Placeholder</div>
-            <div class="cats">Placeholder</div>
-        </div>
-        <div class="line-white"></div>
-        <div class="add">
-            <div class="adds blue"><img src="res/upload.png">
-                <div class="add-text">Placeholder</div>
-            </div>
-            <div class="adds green"><img src="res/chellange.png">
-                <div class="add-text">Placeholder</div>
-            </div>
-            <div class="adds blue"><img src="res/reward.png">
-                <div class="add-text">Placeholder</div>
-            </div>
-        </div>
-        <div class="navbar">
-            <div class="bar home-s"></div>
-            <div class="bar search"></div>
-            <div class="bar middle"></div>
-            <div class="bar message"></div>
-            <div class="bar profile"></div>
-        </div>
-    </div>
+
+
 
 
     <script>
-        $.get("scripts/backend.php", function(data) {
-            $(".result").html(data);
-        });
-        
         function home() {
             var container = document.createElement("div");
-            
+
+            container.className = 'container';
+
+
+
             var nav = document.createElement("div");
             var featured = document.createElement("div");
             var greenline = document.createElement("div");
@@ -428,29 +380,237 @@
             var whiteline = document.createElement("div");
             var add = document.createElement("div");
             var navbar = document.createElement("div");
-            
-            
+
+            nav.className = 'nav';
+            featured.className = 'featured';
+            greenline.className = 'line-green';
+            categories.className = 'categories';
+            whiteline.className = 'line-white';
+            add.className = 'add';
+            navbar.className = 'navbar';
+
+
+
             var fyou = document.createElement("div");
             var notify = document.createElement("div");
             var popul = document.createElement("div");
-            
-            
-            
+
+            fyou.id = 'fyou';
+            notify.className = 'notify';
+            popul.id = 'popul';
+            fyou.innerHTML = 'For you';
+            popul.innerHTML = 'Popular';
+
+
             var fcontent1 = document.createElement("div");
             var fcontent2 = document.createElement("div");
             var fcontent3 = document.createElement("div");
+
+            fcontent1.className = 'f-content';
+            fcontent2.className = 'f-content';
+            fcontent3.className = 'f-content';
+
+
             var fcontentmore = document.createElement("div");
-            
-            
+
+            fcontentmore.className = 'f-content-more';
+
+
+            var fplus = document.createElement("div");
+
+            fplus.className = 'plus';
+            fplus.innerHTML = '>';
+
+
             var cats1 = document.createElement("div");
             var cats2 = document.createElement("div");
             var cats3 = document.createElement("div");
+
+            cats1.className = 'cats';
+            cats2.className = 'cats';
+            cats3.className = 'cats';
+            cats1.innerHTML = 'Placeholder';
+            cats2.innerHTML = 'Placeholder';
+            cats3.innerHTML = 'Placeholder';
+
+
+            var adds1 = document.createElement("div");
+            var adds2 = document.createElement("div");
+            var adds3 = document.createElement("div");
+
+            adds1.className = 'adds blue';
+            adds2.className = 'adds green';
+            adds3.className = 'adds blue';
+
+
+            var barhome = document.createElement("div");
+            var barsearch = document.createElement("div");
+            var barmiddle = document.createElement("div");
+            var barmessage = document.createElement("div");
+            var barprofile = document.createElement("div");
             
             
+            barsearch.onclick = function() {
+                search();
+            };
+
+            barhome.className = 'bar home-s';
+            barsearch.className = 'bar search';
+            barmiddle.className = 'bar middle';
+            barmessage.className = 'bar message';
+            barprofile.className = 'bar profile';
             
+            barhome.id = 'home';
+            barsearch.id = 'search';
+            barmessage.id = 'message';
+            barprofile.id = 'profile';
+
+
+
+            var fcontentnew1 = document.createElement("div");
+            var fcontentnew2 = document.createElement("div");
+            var fcontentnew3 = document.createElement("div");
+
+            fcontentnew1.className = 'new';
+            fcontentnew2.className = 'new';
+            fcontentnew3.className = 'new';
+            fcontentnew1.innerHTML = 'new';
+            fcontentnew2.innerHTML = 'new';
+            fcontentnew3.innerHTML = 'new';
+
+
+            var ftext1 = document.createElement("div");
+            var ftext2 = document.createElement("div");
+            var ftext3 = document.createElement("div");
+
+            ftext1.className = 'f-text';
+            ftext2.className = 'f-text';
+            ftext3.className = 'f-text';
+            ftext1.innerHTML = 'Placeholder';
+            ftext2.innerHTML = 'Placeholder';
+            ftext3.innerHTML = 'Placeholder';
+
+
+            var ftextmore = document.createElement("div");
+
+            ftextmore.className = 'f-text-more';
+            ftextmore.innerHTML = '+5<br>more';
+
+
+            var addsimg1 = document.createElement("img");
+            var addsimg2 = document.createElement("img");
+            var addsimg3 = document.createElement("img");
+
+            addsimg1.src = 'res/upload.png';
+            addsimg2.src = 'res/chellange.png';
+            addsimg3.src = 'res/reward.png';
+
+
+            var addtext1 = document.createElement("div");
+            var addtext2 = document.createElement("div");
+            var addtext3 = document.createElement("div");
+
+            addtext1.className = 'add-text';
+            addtext2.className = 'add-text';
+            addtext3.className = 'add-text';
+            addtext1.innerHTML = 'Placeholder';
+            addtext2.innerHTML = 'Placeholder';
+            addtext3.innerHTML = 'Placeholder';
+
+
+
+
+
+
+
+
+
+            document.body.appendChild(container);
+
+            
+
+
+            container.appendChild(nav);
+            container.appendChild(featured);
+            container.appendChild(greenline);
+            container.appendChild(categories);
+            container.appendChild(whiteline);
+            container.appendChild(add);
+            container.appendChild(navbar);
+
+
+            nav.appendChild(fyou);
+            nav.appendChild(notify);
+            nav.appendChild(popul);
+
+            featured.appendChild(fcontent1);
+            featured.appendChild(fcontent2);
+            featured.appendChild(fcontent3);
+            featured.appendChild(fcontentmore);
+            featured.appendChild(fplus);
+
+
+            fcontent1.appendChild(fcontentnew1);
+            fcontent2.appendChild(fcontentnew2);
+            fcontent3.appendChild(fcontentnew3);
+
+            fcontent1.appendChild(ftext1);
+            fcontent2.appendChild(ftext2);
+            fcontent3.appendChild(ftext3);
+
+            fcontentmore.appendChild(ftextmore);
+
+
+            categories.appendChild(cats1);
+            categories.appendChild(cats2);
+            categories.appendChild(cats3);
+
+            add.appendChild(adds1);
+            add.appendChild(adds2);
+            add.appendChild(adds3);
+
+
+            adds1.appendChild(addsimg1);
+            adds2.appendChild(addsimg2);
+            adds3.appendChild(addsimg3);
+            adds1.appendChild(addtext1);
+            adds2.appendChild(addtext2);
+            adds3.appendChild(addtext3);
+
+            navbar.appendChild(barhome);
+            navbar.appendChild(barsearch);
+            navbar.appendChild(barmiddle);
+            navbar.appendChild(barmessage);
+            navbar.appendChild(barprofile);
+
+        }
+        
+        function search() {
+            $('.add').remove();
+            $('.line-white').remove();
+            $('.categories').remove();
+            $('.line-green').remove();
+            $('.featured').remove();
+            $('.nav').remove();
+            
+            
+
+            $(".home-s").toggleClass('home-s home');
+            $(".search-s").toggleClass('search-s search-s');
+            $(".message-s").toggleClass('message-s message');
+            $(".profile-s").toggleClass('profile-s profile');
+            
+            $(".search").toggleClass('search search-s');
             
             
         }
+    </script>
+
+
+    <script>
+        $.get("scripts/backend.php", function(data) {
+            $(".result").html(data);
+        });
     </script>
 </body>
 
