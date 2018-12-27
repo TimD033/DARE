@@ -292,11 +292,13 @@
         }
 
         .home {
-            background-image: url(res/nav/homeb.png);
+            -webkit-transition: background-image 0.2s ease-in-out;
+            transition: background-image 0.2s ease-in-out;
         }
 
         .search {
-            background-image: url(res/nav/searchb.png);
+            -webkit-transition: background-image 0.2s ease-in-out;
+            transition: background-image 0.2s ease-in-out;
         }
 
         .middle {
@@ -305,30 +307,16 @@
         }
 
         .message {
-            background-image: url(res/nav/messageb.png);
+            -webkit-transition: background-image 0.2s ease-in-out;
+            transition: background-image 0.2s ease-in-out;
         }
 
         .profile {
-            background-image: url(res/nav/profileb.png);
+            -webkit-transition: background-image 0.2s ease-in-out;
+            transition: background-image 0.2s ease-in-out;
         }
 
 
-        .home-s {
-            background-image: url(res/nav/homeg.png);
-        }
-
-        .search-s {
-            background-image: url(res/nav/searchg.png);
-        }
-
-
-        .message-s {
-            background-image: url(res/nav/messageg.png);
-        }
-
-        .profile-s {
-            background-image: url(res/nav/profileg.png);
-        }
 
         .new {
             font-family: neon;
@@ -361,15 +349,82 @@
 <body onload="home()">
     <div class="bg"></div>
 
+    <div class="container" id="container">
 
+    </div>
+
+    <div class="navbar">
+        <div onclick="home()" class="bar home" id="home"></div>
+        <div onclick="search()" class="bar search" id="search"></div>
+        <div class="bar middle"></div>
+        <div class="bar message" id="message"></div>
+        <div class="bar profile" id="profile"></div>
+    </div>
 
 
 
     <script>
-        function home() {
-            var container = document.createElement("div");
+        function knoppen(knop) {
+            document.getElementById('home').style.backgroundImage = "url('res/nav/homeb.png')";
+            document.getElementById('search').style.backgroundImage = "url('res/nav/searchb.png')";
+            document.getElementById('message').style.backgroundImage = "url('res/nav/messageb.png')";
+            document.getElementById('profile').style.backgroundImage = "url('res/nav/profileb.png')";
 
-            container.className = 'container';
+
+
+            switch (knop) {
+
+                case 'h':
+                    document.getElementById('home').style.backgroundImage = "url('res/nav/homeg.png')";
+                    break;
+
+
+                case 's':
+                    document.getElementById('search').style.backgroundImage = "url('res/nav/searchg.png')";
+                    break;
+
+
+                case 'm':
+                    document.getElementById('message').style.backgroundImage = "url('res/nav/messageg.png')";
+                    break;
+
+
+                case 'p':
+                    document.getElementById('profile').style.backgroundImage = "url('res/nav/profileg.png')";
+                    break;
+
+
+            }
+            
+            
+            
+
+        }
+        
+        function empty() {
+               $('.container').fadeOut(200);
+
+
+
+
+            setTimeout(
+                function() {
+
+
+                    $(".container").empty();
+
+
+
+
+                }, 300);
+        }
+
+
+        function home() {
+            empty();
+
+            var container = document.getElementById("container");
+
 
 
 
@@ -379,7 +434,10 @@
             var categories = document.createElement("div");
             var whiteline = document.createElement("div");
             var add = document.createElement("div");
-            var navbar = document.createElement("div");
+
+
+            container.style.display = 'none';
+
 
             nav.className = 'nav';
             featured.className = 'featured';
@@ -387,7 +445,7 @@
             categories.className = 'categories';
             whiteline.className = 'line-white';
             add.className = 'add';
-            navbar.className = 'navbar';
+
 
 
 
@@ -443,27 +501,10 @@
             adds3.className = 'adds blue';
 
 
-            var barhome = document.createElement("div");
-            var barsearch = document.createElement("div");
-            var barmiddle = document.createElement("div");
-            var barmessage = document.createElement("div");
-            var barprofile = document.createElement("div");
-            
-            
-            barsearch.onclick = function() {
-                search();
-            };
 
-            barhome.className = 'bar home-s';
-            barsearch.className = 'bar search';
-            barmiddle.className = 'bar middle';
-            barmessage.className = 'bar message';
-            barprofile.className = 'bar profile';
-            
-            barhome.id = 'home';
-            barsearch.id = 'search';
-            barmessage.id = 'message';
-            barprofile.id = 'profile';
+
+
+
 
 
 
@@ -525,18 +566,13 @@
 
 
 
-            document.body.appendChild(container);
-
-            
-
-
             container.appendChild(nav);
             container.appendChild(featured);
             container.appendChild(greenline);
             container.appendChild(categories);
             container.appendChild(whiteline);
             container.appendChild(add);
-            container.appendChild(navbar);
+
 
 
             nav.appendChild(fyou);
@@ -577,33 +613,32 @@
             adds2.appendChild(addtext2);
             adds3.appendChild(addtext3);
 
-            navbar.appendChild(barhome);
-            navbar.appendChild(barsearch);
-            navbar.appendChild(barmiddle);
-            navbar.appendChild(barmessage);
-            navbar.appendChild(barprofile);
+
+
+            $('.container').fadeIn(200);
+
+
+
+
+
+
+
+            knoppen('h');
+        }
+
+        function search() {
+            knoppen('s');
+            empty();
+
+
+
+         
+
 
         }
         
-        function search() {
-            $('.add').remove();
-            $('.line-white').remove();
-            $('.categories').remove();
-            $('.line-green').remove();
-            $('.featured').remove();
-            $('.nav').remove();
-            
-            
-
-            $(".home-s").toggleClass('home-s home');
-            $(".search-s").toggleClass('search-s search-s');
-            $(".message-s").toggleClass('message-s message');
-            $(".profile-s").toggleClass('profile-s profile');
-            
-            $(".search").toggleClass('search search-s');
-            
-            
-        }
+        
+        
     </script>
 
 
