@@ -31,6 +31,7 @@
             user-select: none;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         }
 
         body {
@@ -346,7 +347,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<body onload="home()">
+<body onload="launch('h')">
     <div class="bg"></div>
 
     <div class="container" id="container">
@@ -354,8 +355,8 @@
     </div>
 
     <div class="navbar">
-        <div onclick="home()" class="bar home" id="home"></div>
-        <div onclick="search()" class="bar search" id="search"></div>
+        <div onclick="launch('h');" class="bar home" id="home"></div>
+        <div onclick="launch('s');" class="bar search" id="search"></div>
         <div class="bar middle"></div>
         <div class="bar message" id="message"></div>
         <div class="bar profile" id="profile"></div>
@@ -364,69 +365,19 @@
 
 
     <script>
-        function knoppen(knop) {
-            document.getElementById('home').style.backgroundImage = "url('res/nav/homeb.png')";
-            document.getElementById('search').style.backgroundImage = "url('res/nav/searchb.png')";
-            document.getElementById('message').style.backgroundImage = "url('res/nav/messageb.png')";
-            document.getElementById('profile').style.backgroundImage = "url('res/nav/profileb.png')";
-
-
-
-            switch (knop) {
-
-                case 'h':
-                    document.getElementById('home').style.backgroundImage = "url('res/nav/homeg.png')";
-                    break;
-
-
-                case 's':
-                    document.getElementById('search').style.backgroundImage = "url('res/nav/searchg.png')";
-                    break;
-
-
-                case 'm':
-                    document.getElementById('message').style.backgroundImage = "url('res/nav/messageg.png')";
-                    break;
-
-
-                case 'p':
-                    document.getElementById('profile').style.backgroundImage = "url('res/nav/profileg.png')";
-                    break;
-
-
-            }
-            
-            
-            
-
-        }
-        
         function empty() {
-               $('.container').fadeOut(200);
 
-
-
-
+            $('.container').fadeOut(200);
             setTimeout(
                 function() {
-
-
                     $(".container").empty();
-
-
-
-
                 }, 300);
         }
 
 
         function home() {
-            empty();
 
             var container = document.getElementById("container");
-
-
-
 
             var nav = document.createElement("div");
             var featured = document.createElement("div");
@@ -435,9 +386,7 @@
             var whiteline = document.createElement("div");
             var add = document.createElement("div");
 
-
             container.style.display = 'none';
-
 
             nav.className = 'nav';
             featured.className = 'featured';
@@ -445,9 +394,6 @@
             categories.className = 'categories';
             whiteline.className = 'line-white';
             add.className = 'add';
-
-
-
 
             var fyou = document.createElement("div");
             var notify = document.createElement("div");
@@ -459,7 +405,6 @@
             fyou.innerHTML = 'For you';
             popul.innerHTML = 'Popular';
 
-
             var fcontent1 = document.createElement("div");
             var fcontent2 = document.createElement("div");
             var fcontent3 = document.createElement("div");
@@ -468,17 +413,14 @@
             fcontent2.className = 'f-content';
             fcontent3.className = 'f-content';
 
-
             var fcontentmore = document.createElement("div");
 
             fcontentmore.className = 'f-content-more';
-
 
             var fplus = document.createElement("div");
 
             fplus.className = 'plus';
             fplus.innerHTML = '>';
-
 
             var cats1 = document.createElement("div");
             var cats2 = document.createElement("div");
@@ -491,7 +433,6 @@
             cats2.innerHTML = 'Placeholder';
             cats3.innerHTML = 'Placeholder';
 
-
             var adds1 = document.createElement("div");
             var adds2 = document.createElement("div");
             var adds3 = document.createElement("div");
@@ -499,14 +440,6 @@
             adds1.className = 'adds blue';
             adds2.className = 'adds green';
             adds3.className = 'adds blue';
-
-
-
-
-
-
-
-
 
             var fcontentnew1 = document.createElement("div");
             var fcontentnew2 = document.createElement("div");
@@ -519,7 +452,6 @@
             fcontentnew2.innerHTML = 'new';
             fcontentnew3.innerHTML = 'new';
 
-
             var ftext1 = document.createElement("div");
             var ftext2 = document.createElement("div");
             var ftext3 = document.createElement("div");
@@ -531,12 +463,10 @@
             ftext2.innerHTML = 'Placeholder';
             ftext3.innerHTML = 'Placeholder';
 
-
             var ftextmore = document.createElement("div");
 
             ftextmore.className = 'f-text-more';
             ftextmore.innerHTML = '+5<br>more';
-
 
             var addsimg1 = document.createElement("img");
             var addsimg2 = document.createElement("img");
@@ -545,7 +475,6 @@
             addsimg1.src = 'res/upload.png';
             addsimg2.src = 'res/chellange.png';
             addsimg3.src = 'res/reward.png';
-
 
             var addtext1 = document.createElement("div");
             var addtext2 = document.createElement("div");
@@ -558,22 +487,12 @@
             addtext2.innerHTML = 'Placeholder';
             addtext3.innerHTML = 'Placeholder';
 
-
-
-
-
-
-
-
-
             container.appendChild(nav);
             container.appendChild(featured);
             container.appendChild(greenline);
             container.appendChild(categories);
             container.appendChild(whiteline);
             container.appendChild(add);
-
-
 
             nav.appendChild(fyou);
             nav.appendChild(notify);
@@ -585,7 +504,6 @@
             featured.appendChild(fcontentmore);
             featured.appendChild(fplus);
 
-
             fcontent1.appendChild(fcontentnew1);
             fcontent2.appendChild(fcontentnew2);
             fcontent3.appendChild(fcontentnew3);
@@ -596,7 +514,6 @@
 
             fcontentmore.appendChild(ftextmore);
 
-
             categories.appendChild(cats1);
             categories.appendChild(cats2);
             categories.appendChild(cats3);
@@ -605,7 +522,6 @@
             add.appendChild(adds2);
             add.appendChild(adds3);
 
-
             adds1.appendChild(addsimg1);
             adds2.appendChild(addsimg2);
             adds3.appendChild(addsimg3);
@@ -613,32 +529,55 @@
             adds2.appendChild(addtext2);
             adds3.appendChild(addtext3);
 
-
-
             $('.container').fadeIn(200);
 
-
-
-
-
-
-
-            knoppen('h');
         }
 
         function search() {
-            knoppen('s');
+        }
+
+        function launch(knop) {
             empty();
+            document.getElementById('home').style.backgroundImage = "url('res/nav/homeb.png')";
+            document.getElementById('search').style.backgroundImage = "url('res/nav/searchb.png')";
+            document.getElementById('message').style.backgroundImage = "url('res/nav/messageb.png')";
+            document.getElementById('profile').style.backgroundImage = "url('res/nav/profileb.png')";
+
+            switch (knop) {
+
+                case 'h':
+                    document.getElementById('home').style.backgroundImage = "url('res/nav/homeg.png')";
+                    setTimeout(function() {
+                        home();
+                    }, 300);
+                    break;
 
 
+                case 's':
+                    document.getElementById('search').style.backgroundImage = "url('res/nav/searchg.png')";
+                    setTimeout(function() {
+                        search();
+                    }, 300);
+                    break;
 
-         
 
+                case 'm':
+                    document.getElementById('message').style.backgroundImage = "url('res/nav/messageg.png')";
+                    setTimeout(function() {
+                        message();
+                    }, 300);
+                    break;
+
+
+                case 'p':
+                    document.getElementById('profile').style.backgroundImage = "url('res/nav/profileg.png')";
+                    setTimeout(function() {
+                        profile();
+                    }, 300);
+                    break;
+            }
 
         }
-        
-        
-        
     </script>
 
 
