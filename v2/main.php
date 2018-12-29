@@ -21,6 +21,8 @@
 
     <link rel="apple-touch-startup-image" href="res/launch/7.jpg" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300i,400i" rel="stylesheet">
+
     <style>
         @font-face {
             font-family: 'neon';
@@ -128,7 +130,69 @@
             position: fixed;
             width: 100%;
             height: 100%;
+
         }
+
+
+        .searchform {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            height: fit-content;
+            margin-top: 8vw;
+            border: none;
+        }
+
+
+        .searchinput {
+            width: 86%;
+            left: 0;
+            right: 0;
+            height: 12vw;
+            border-radius: 19vw;
+            display: flex;
+            justify-content: center;
+            font-size: 6vw;
+            padding: 0vw 6vw;
+            font-family: 'Roboto', sans-serif;
+            font-style: italic;
+            font-weight: 300;
+            border: none;
+        }
+
+        .amount {
+            width: 100%;
+            height: 15vw;
+            margin-top: 1vw;
+        }
+
+        .result-amount {
+            color: #06ff99;
+            font-family: neon;
+            margin-left: 7vw;
+            font-size: 4.5vw;
+        }
+
+
+
+
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #a2a2a2;
+            opacity: 1;
+            /* Firefox */
+        }
+
+        :-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: #a2a2a2;
+        }
+
+        ::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: #a2a2a2;
+        }
+
 
 
         .f-text {
@@ -343,11 +407,65 @@
             color: white;
             visibility: visible;
         }
+
+        .filter {
+            width: 100%;
+            height: 20vw;
+            color: white;
+            font-family: neon;
+            display: flex;
+            justify-content: center;
+            font-size: 7vw;
+            margin-top: 8vw;
+        }
+
+        .gradient {
+            background-image: linear-gradient(#000000 37%, #ffffff00 99%);
+            height: 57vw;
+            position: fixed;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .users {
+            float: left;
+            margin: 0px 6vw;
+        }
+
+        .challenges {
+            float: left;
+            margin: 0px 6vw;
+        }
+
+        .selector {
+            width: 20%;
+            position: fixed;
+            height: 1.5vw;
+            margin-top: 9.5vw;
+            background-color: white;
+            border-radius: 10vw;
+            left: 17.5vw;
+            -webkit-transition: left 0.2s, width 0.2s ease-in-out;
+            transition: left 0.2s, width 0.2s ease-in-out;
+
+        }
+
+        .found {
+            margin-left: 7vw;
+            font-family: neon;
+            font-size: 5vw;
+            color: #a7a7a7;
+        }
+        
+        
+        .results {
+            font-size: 50px;
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<body onload="launch('h')">
+<body onload="launch('home')">
     <div class="bg"></div>
 
     <div class="container" id="container">
@@ -355,11 +473,11 @@
     </div>
 
     <div class="navbar">
-        <div onclick="launch('h');" class="bar home" id="home"></div>
-        <div onclick="launch('s');" class="bar search" id="search"></div>
+        <div onclick="launch('home');" class="bar home" id="home"></div>
+        <div onclick="launch('search');" class="bar search" id="search"></div>
         <div class="bar middle"></div>
-        <div class="bar message" id="message"></div>
-        <div class="bar profile" id="profile"></div>
+        <div onclick="launch('message');" class="bar message" id="message"></div>
+        <div onclick="launch('profile');" class="bar profile" id="profile"></div>
     </div>
 
 
@@ -534,6 +652,131 @@
         }
 
         function search() {
+            var container = document.getElementById("container");
+            var searchform = document.createElement("form");
+            var filter = document.createElement("div");
+            var amount = document.createElement("div");
+            var results = document.createElement("div");
+            var gradient = document.createElement("div");
+
+
+            filter.className = 'filter';
+            amount.className = 'amount';
+            results.className = 'results';
+            searchform.className = 'searchform';
+            gradient.className = 'gradient';
+
+
+
+            var users = document.createElement("div");
+            var challenges = document.createElement("div");
+            var filterselect = document.createElement("div");
+            var amountnumber = document.createElement("div");
+            var amounttext = document.createElement("div");
+            var amountorder = document.createElement("div");
+            var searchinput = document.createElement("input");
+
+            users.className = 'users';
+            challenges.className = 'challenges';
+            filterselect.className = 'selector';
+            amountnumber.className = 'result-amount';
+            amountnumber.innerHTML = '325';
+            amounttext.className = 'found';
+            amountorder.classname = 'order';
+            searchinput.className = 'searchinput';
+            searchinput.placeholder = 'Search';
+
+            users.innerHTML = 'users';
+            challenges.innerHTML = 'challenges';
+            amounttext.innerHTML = 'users found';
+
+            challenges.onclick = function() {
+
+                filterselect.style.width = '36%';
+                filterselect.style.left = '46.5vw';
+                amounttext.innerHTML = 'challenges found';
+
+
+
+            };
+
+            users.onclick = function() {
+
+                filterselect.style.width = '20%';
+                filterselect.style.left = '17.5vw';
+                amounttext.innerHTML = 'users found';
+
+
+
+            };
+
+            searchinput.onkeyup = function() {
+
+                    
+
+
+
+
+                $.post("scripts/search.php", {
+                        type: "user",
+                        query: searchinput.value
+                    },
+                    function(data, status) {
+                    $(".results").empty();    
+                    obj = JSON.parse(data);
+
+
+                        for (var i = 0; i < obj.length; i++) {
+                            var json = obj[i];
+
+                            console.log(json.username);
+                            
+                            
+                            var texttt = document.createElement('p');
+                            texttt.innerHTML = json.username;
+                            
+                            results.appendChild(texttt);
+                            
+                        }
+
+
+
+                    });
+
+
+
+
+
+
+            };
+
+
+
+
+
+
+            container.appendChild(gradient);
+            container.appendChild(searchform);
+            container.appendChild(filter);
+            container.appendChild(amount);
+            container.appendChild(results);
+
+
+            searchform.appendChild(searchinput);
+            filter.appendChild(users);
+            filter.appendChild(challenges);
+            filter.appendChild(filterselect);
+            amount.appendChild(amountnumber);
+            amount.appendChild(amounttext);
+            amount.appendChild(amountorder);
+
+
+            $('.container').fadeIn(200);
+
+
+
+
+
         }
 
         function launch(knop) {
@@ -545,7 +788,7 @@
 
             switch (knop) {
 
-                case 'h':
+                case 'home':
                     document.getElementById('home').style.backgroundImage = "url('res/nav/homeg.png')";
                     setTimeout(function() {
                         home();
@@ -553,7 +796,7 @@
                     break;
 
 
-                case 's':
+                case 'search':
                     document.getElementById('search').style.backgroundImage = "url('res/nav/searchg.png')";
                     setTimeout(function() {
                         search();
@@ -561,7 +804,7 @@
                     break;
 
 
-                case 'm':
+                case 'message':
                     document.getElementById('message').style.backgroundImage = "url('res/nav/messageg.png')";
                     setTimeout(function() {
                         message();
@@ -569,7 +812,7 @@
                     break;
 
 
-                case 'p':
+                case 'profile':
                     document.getElementById('profile').style.backgroundImage = "url('res/nav/profileg.png')";
                     setTimeout(function() {
                         profile();
