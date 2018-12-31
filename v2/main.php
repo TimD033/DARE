@@ -460,6 +460,7 @@
             font-family: neon;
             font-size: 5vw;
             color: #a7a7a7;
+            float: left;
         }
 
 
@@ -471,6 +472,29 @@
             color: #ffffffe0;
             margin-left: 7vw;
             margin: 4vw 7vw;
+        }
+
+        .order {
+            font-family: neon;
+            font-size: 5vw;
+            color: #a7a7a7;
+            margin-right: 7vw;
+            float: right;
+        }
+
+        .order>span {
+            font-size: 3.5vw;
+        }
+
+        #dropdownarrow {
+            transform: rotate(0deg);
+            display: block;
+            width: fit-content;
+            float: right;
+            margin-top: 1vw;
+            margin-left: 3vw;
+            -webkit-transition: transform 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out;
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -494,6 +518,14 @@
 
 
     <script>
+        function appchild() {
+            for (var i = 0; i < arguments.length; i++) {
+                if (i != 0) {
+                    arguments[0].appendChild(arguments[i]);
+                }
+            }
+        }
+
         function empty() {
 
             $('.container').fadeOut(200);
@@ -616,47 +648,19 @@
             addtext2.innerHTML = 'Placeholder';
             addtext3.innerHTML = 'Placeholder';
 
-            container.appendChild(nav);
-            container.appendChild(featured);
-            container.appendChild(greenline);
-            container.appendChild(categories);
-            container.appendChild(whiteline);
-            container.appendChild(add);
 
-            nav.appendChild(fyou);
-            nav.appendChild(notify);
-            nav.appendChild(popul);
-
-            featured.appendChild(fcontent1);
-            featured.appendChild(fcontent2);
-            featured.appendChild(fcontent3);
-            featured.appendChild(fcontentmore);
-            featured.appendChild(fplus);
-
-            fcontent1.appendChild(fcontentnew1);
-            fcontent2.appendChild(fcontentnew2);
-            fcontent3.appendChild(fcontentnew3);
-
-            fcontent1.appendChild(ftext1);
-            fcontent2.appendChild(ftext2);
-            fcontent3.appendChild(ftext3);
-
-            fcontentmore.appendChild(ftextmore);
-
-            categories.appendChild(cats1);
-            categories.appendChild(cats2);
-            categories.appendChild(cats3);
-
-            add.appendChild(adds1);
-            add.appendChild(adds2);
-            add.appendChild(adds3);
-
-            adds1.appendChild(addsimg1);
-            adds2.appendChild(addsimg2);
-            adds3.appendChild(addsimg3);
-            adds1.appendChild(addtext1);
-            adds2.appendChild(addtext2);
-            adds3.appendChild(addtext3);
+            appchild(container, nav, featured, greenline, categories, whiteline, add);
+            appchild(nav, fyou, notify, popul);
+            appchild(featured, fcontent1, fcontent2, fcontent3, fcontentmore, fplus);
+            appchild(fcontent1, fcontentnew1, ftext1);
+            appchild(fcontent2, fcontentnew2, ftext2);
+            appchild(fcontent3, fcontentnew3, ftext3);
+            appchild(fcontentmore, ftextmore)
+            appchild(categories, cats1, cats2, cats3);
+            appchild(add, adds1, adds2, adds3);
+            appchild(adds1, addsimg1, addtext1);
+            appchild(adds2, addsimg2, addtext2);
+            appchild(adds3, addsimg3, addtext3);
 
             $('.container').fadeIn(200);
 
@@ -694,7 +698,7 @@
             amountnumber.className = 'result-amount';
             amountnumber.innerHTML = '0';
             amounttext.className = 'found';
-            amountorder.classname = 'order';
+            amountorder.className = 'order';
             searchinput.className = 'searchinput';
             searchinput.placeholder = 'Search';
 
@@ -702,6 +706,46 @@
             challenges.innerHTML = 'challenges';
             amounttext.innerHTML = 'users found';
             var typepostsearch = 'user';
+            amountorder.innerHTML = 'order by <span id="dropdownarrow">v</span>'
+
+            var dropped = 0;
+
+
+            amountorder.onclick = function() {
+
+                span = document.getElementById("dropdownarrow");
+                    
+                
+  
+
+                switch (dropped) {
+                    case 0:
+                        dropped = 1;
+                        span.style.webkitTransform = 'rotate(90deg)';
+                        span.style.mozTransform = 'rotate(90deg)';
+                        span.style.msTransform = 'rotate(90deg)';
+                        span.style.oTransform = 'rotate(90deg)';
+                        span.style.transform = 'rotate(90deg)';
+                        break;
+
+                    case 1:
+                        dropped = 0;
+                        span.style.webkitTransform = 'rotate(0deg)';
+                        span.style.mozTransform = 'rotate(0deg)';
+                        span.style.msTransform = 'rotate(0deg)';
+                        span.style.oTransform = 'rotate(0deg)';
+                        span.style.transform = 'rotate(0deg)';
+                        break;
+
+                }
+
+
+
+            };
+
+
+
+
 
             challenges.onclick = function() {
 
@@ -753,7 +797,7 @@
 
                                 }
 
-                                    results.appendChild(texttt);
+                                results.appendChild(texttt);
 
                             }
 
@@ -768,31 +812,12 @@
             };
 
 
-
-
-
-
-            container.appendChild(gradient);
-            container.appendChild(searchform);
-            container.appendChild(filter);
-            container.appendChild(amount);
-            container.appendChild(results);
-
-
-            searchform.appendChild(searchinput);
-            filter.appendChild(users);
-            filter.appendChild(challenges);
-            filter.appendChild(filterselect);
-            amount.appendChild(amountnumber);
-            amount.appendChild(amounttext);
-            amount.appendChild(amountorder);
-
+            appchild(container, gradient, searchform, filter, amount, results);
+            appchild(searchform, searchinput);
+            appchild(filter, users, challenges, filterselect);
+            appchild(amount, amountnumber, amounttext, amountorder);
 
             $('.container').fadeIn(200);
-
-
-
-
 
         }
 
