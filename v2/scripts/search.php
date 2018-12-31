@@ -1,24 +1,25 @@
 <?php
 
 include "dbconfig.php";
-$type = 'user';
-$query = $_POST["query"];
+
+$searchquery = $_POST["query"];
+$type = $_POST["type"];
 
 
 
 switch ($type) {
     case 'user':
-        $istype = 'users';
+        $query = 'SELECT username, id FROM users WHERE username LIKE ?';
         break;
     case 'challenge':
-        $istype = 'challanges';
+        $query = 'SELECT title, userid FROM challanges WHERE title LIKE ?';
         break;
 
 }
 
 
-$stmt = $conn->prepare('SELECT username, id FROM '. $istype .' WHERE username LIKE ?');
-$stmt->execute(['%'. $query .'%']);
+$stmt = $conn->prepare($query);
+$stmt->execute(['%'. $searchquery .'%']);
 $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 

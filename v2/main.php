@@ -40,7 +40,7 @@
             background-color: #2a4644;
             position: fixed;
 
-            transition: background-color 0.6s;
+            transition: background-color 0.2s ease-in-out;
 
 
 
@@ -162,7 +162,7 @@
 
         .amount {
             width: 100%;
-            height: 15vw;
+            height: 16vw;
             margin-top: 1vw;
         }
 
@@ -284,6 +284,11 @@
             font-size: 4.0vw;
             text-align: center;
             padding: 1vw 0px;
+        }
+
+        .bodytrans {
+            background-color: #000000;
+
         }
 
 
@@ -420,7 +425,7 @@
         }
 
         .gradient {
-            background-image: linear-gradient(#000000 37%, #ffffff00 99%);
+            background-image: linear-gradient(#000000 37%, #00000000 99%);
             height: 57vw;
             position: fixed;
             width: 100%;
@@ -456,10 +461,16 @@
             font-size: 5vw;
             color: #a7a7a7;
         }
-        
-        
-        .results {
-            font-size: 50px;
+
+
+
+
+        .resulttext {
+            font-family: neon;
+            font-size: 8vw;
+            color: #ffffffe0;
+            margin-left: 7vw;
+            margin: 4vw 7vw;
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -660,6 +671,7 @@
             var gradient = document.createElement("div");
 
 
+
             filter.className = 'filter';
             amount.className = 'amount';
             results.className = 'results';
@@ -680,7 +692,7 @@
             challenges.className = 'challenges';
             filterselect.className = 'selector';
             amountnumber.className = 'result-amount';
-            amountnumber.innerHTML = '325';
+            amountnumber.innerHTML = '0';
             amounttext.className = 'found';
             amountorder.classname = 'order';
             searchinput.className = 'searchinput';
@@ -689,12 +701,15 @@
             users.innerHTML = 'users';
             challenges.innerHTML = 'challenges';
             amounttext.innerHTML = 'users found';
+            var typepostsearch = 'user';
 
             challenges.onclick = function() {
 
                 filterselect.style.width = '36%';
                 filterselect.style.left = '46.5vw';
                 amounttext.innerHTML = 'challenges found';
+                typepostsearch = 'challenge';
+                $('.searchinput').keyup();
 
 
 
@@ -705,47 +720,49 @@
                 filterselect.style.width = '20%';
                 filterselect.style.left = '17.5vw';
                 amounttext.innerHTML = 'users found';
-
-
+                typepostsearch = 'user';
+                $('.searchinput').keyup();
 
             };
 
             searchinput.onkeyup = function() {
 
-                    
+                if ($('.searchinput').val() !== '') {
 
+                    $.post("scripts/search.php", {
+                            type: typepostsearch,
+                            query: searchinput.value
+                        },
+                        function(data, status) {
+                            $(".results").empty();
+                            obj = JSON.parse(data);
 
+                            for (var i = 0; i < obj.length; i++) {
+                                var json = obj[i];
+                                var texttt = document.createElement('div');
+                                amountnumber.innerHTML = obj.length;
+                                texttt.className = 'resulttext';
+                                switch (typepostsearch) {
+                                    case 'user':
+                                        texttt.innerHTML = json.username;
+                                        break;
 
+                                    case 'challenge':
+                                        texttt.innerHTML = json.title;
+                                        break;
 
-                $.post("scripts/search.php", {
-                        type: "user",
-                        query: searchinput.value
-                    },
-                    function(data, status) {
-                    $(".results").empty();    
-                    obj = JSON.parse(data);
+                                }
 
+                                    results.appendChild(texttt);
 
-                        for (var i = 0; i < obj.length; i++) {
-                            var json = obj[i];
+                            }
 
-                            console.log(json.username);
-                            
-                            
-                            var texttt = document.createElement('p');
-                            texttt.innerHTML = json.username;
-                            
-                            results.appendChild(texttt);
-                            
-                        }
+                        });
 
-
-
-                    });
-
-
-
-
+                } else {
+                    $(".results").empty();
+                    amountnumber.innerHTML = '0';
+                }
 
 
             };
@@ -785,7 +802,7 @@
             document.getElementById('search').style.backgroundImage = "url('res/nav/searchb.png')";
             document.getElementById('message').style.backgroundImage = "url('res/nav/messageb.png')";
             document.getElementById('profile').style.backgroundImage = "url('res/nav/profileb.png')";
-
+            $("body").removeClass("bodytrans");
             switch (knop) {
 
                 case 'home':
@@ -799,6 +816,7 @@
                 case 'search':
                     document.getElementById('search').style.backgroundImage = "url('res/nav/searchg.png')";
                     setTimeout(function() {
+                        $("body").toggleClass('bodytrans');
                         search();
                     }, 300);
                     break;
@@ -821,13 +839,6 @@
             }
 
         }
-    </script>
-
-
-    <script>
-        $.get("scripts/backend.php", function(data) {
-            $(".result").html(data);
-        });
     </script>
 </body>
 
