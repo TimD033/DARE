@@ -820,6 +820,10 @@
             $('.container').fadeIn(200);
 
         }
+        
+        function message() {
+            var container = document.getElementById("container");
+        }
 
         function launch(knop) {
             empty();
