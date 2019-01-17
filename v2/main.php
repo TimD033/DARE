@@ -37,30 +37,24 @@
         }
 
         body {
-            background-color: #2a4644;
-            position: fixed;
-
-            transition: background-color 0.2s ease-in-out;
-
-
-
-
-        }
+    background-color: #2a4644;
+    transition: background-color 0.2s ease-in-out;
+}
 
 
 
         .bg {
-
-            background-image: linear-gradient(#2a4644, #3c1630);
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-        }
+    background-image: linear-gradient(#2a4644, #3c1630);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: -1;
+}
 
 
         #fyou {
@@ -98,6 +92,7 @@
             display: flex;
             justify-content: center;
         }
+        
 
         .f-content {
             border-radius: 50%;
@@ -110,38 +105,39 @@
             justify-content: center;
         }
 
-        .f-content-more {
-            border-radius: 50%;
-            width: 16.5%;
-            height: 16.5vw;
-            float: left;
-            margin: 0px 2%;
-            border: 0.6vw solid #0BCBFF;
-            background-color: #205d6f;
-        }
+.f-content-more {
+border-radius: 50%;
+width: 16.5%;
+height: 16.5vw;
+float: left;
+margin: 0px 2%;
+border: 0.6vw solid #0BCBFF;
+background-color: #205d6f;
+z-index: 1;
+}
 
 
 
         .container {
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            position: fixed;
-            width: 100%;
-            height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 
-        }
 
-
-        .searchform {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            height: fit-content;
-            margin-top: 8vw;
-            border: none;
-        }
+.searchform {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    margin-top: 8vw;
+    border: none;
+    position: fixed;
+}
 
 
         .searchinput {
@@ -159,12 +155,42 @@
             font-weight: 300;
             border: none;
         }
+        
+
+.results {
+    margin-top: 63vw;
+    height: calc(100% - 86.5vw);
+    overflow: auto;
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+        
+.hide-top {
+width: 100%;
+height: 10vw;
+margin-top: 59vw;
+position: fixed;
+z-index: 0;
+background-image: linear-gradient(#32383e 42.02%, #32383e00);
+}
+        
+.hide-bottom {
+width: 100%;
+height: 38vw;
+bottom: 23vw;
+z-index: 0;
+position: fixed;
+background-image: linear-gradient(#40193400, #3f1833);
+}
 
         .amount {
-            width: 100%;
-            height: 16vw;
-            margin-top: 1vw;
-        }
+    width: 100%;
+    height: 16vw;
+    margin-top: 49vw;
+    position: fixed;
+}
 
         .result-amount {
             color: #06ff99;
@@ -216,29 +242,30 @@
 
 
         .f-text-more {
-            font-family: neon;
-            text-align: center;
-            margin-top: 20%;
-            font-size: 4vw;
-            color: #0BCBFF;
-        }
+font-family: neon;
+text-align: center;
+margin-top: 20%;
+font-size: 4vw;
+color: #0BCBFF;
+}
 
         .plus {
-            width: 5.5%;
-            height: 14vw;
-            float: left;
-            margin: 2% 2% 0px -7%;
-            background-color: #205d6f;
-            z-index: -1;
-            border-radius: 0vw 4vw 4vw 0vw;
-            color: #0bcbff;
-            font-size: 12.5vw;
-            display: flex;
-            justify-content: center;
-            padding: 0px 0px 0px 5%;
-            font-family: neon;
-            text-align: center;
-        }
+width: 5.5%;
+height: 14vw;
+float: left;
+margin: 2% 2% 0px -7%;
+background-color: #205d6f;
+z-index: -1;
+border-radius: 0vw 4vw 4vw 0vw;
+color: #0bcbff;
+font-size: 12.5vw;
+display: flex;
+justify-content: center;
+padding: 0px 0px 0px 5%;
+font-family: neon;
+text-align: center;
+z-index: 0;
+}
 
         .line-green {
             width: 91%;
@@ -414,23 +441,26 @@
         }
 
         .filter {
-            width: 100%;
-            height: 20vw;
-            color: white;
-            font-family: neon;
-            display: flex;
-            justify-content: center;
-            font-size: 7vw;
-            margin-top: 8vw;
-        }
+    width: 100%;
+    height: 20vw;
+    color: white;
+    font-family: neon;
+    display: flex;
+    justify-content: center;
+    font-size: 7vw;
+    margin-top: 28vw;
+    position: fixed;
+}
+        
+
 
         .gradient {
-            background-image: linear-gradient(#000000 37%, #00000000 99%);
-            height: 57vw;
-            position: fixed;
-            width: 100%;
-            z-index: -1;
-        }
+    background-image: linear-gradient(#000000 37%, #00000000 99%);
+    height: 57vw;
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+}
 
         .users {
             float: left;
@@ -673,10 +703,14 @@
             var amount = document.createElement("div");
             var results = document.createElement("div");
             var gradient = document.createElement("div");
+            var hidetop = document.createElement("div");
+            var hidebottom = document.createElement("div");
 
 
 
             filter.className = 'filter';
+            hidetop.className = 'hide-top';
+            hidebottom.className = 'hide-bottom';
             amount.className = 'amount';
             results.className = 'results';
             searchform.className = 'searchform';
@@ -812,7 +846,7 @@
             };
 
 
-            appchild(container, gradient, searchform, filter, amount, results);
+            appchild(container, hidetop, gradient, searchform, filter, amount, hidebottom, results);
             appchild(searchform, searchinput);
             appchild(filter, users, challenges, filterselect);
             appchild(amount, amountnumber, amounttext, amountorder);
@@ -868,6 +902,14 @@
             }
 
         }
+        
+        
+
+        
+
+    
+
+
     </script>
 </body>
 
