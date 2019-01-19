@@ -830,7 +830,7 @@ z-index: 0;
                                         break;
 
                                 }
-
+                                appchild(container, results);
                                 results.appendChild(texttt);
 
                             }
@@ -846,7 +846,7 @@ z-index: 0;
             };
 
 
-            appchild(container, hidetop, gradient, searchform, filter, amount, hidebottom, results);
+            appchild(container, hidetop, gradient, searchform, filter, amount, hidebottom);
             appchild(searchform, searchinput);
             appchild(filter, users, challenges, filterselect);
             appchild(amount, amountnumber, amounttext, amountorder);
