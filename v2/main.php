@@ -520,54 +520,53 @@
         }
         
         .m-from {
-            float: left;
-            padding: 0vw 4vw;
-        }
+    float: left;
+    padding: 0vw 4vw;
+    height: fit-content;
+}
         
         .m-time {
-            width: fit-content;
-            height: fit-content;
-            float: right;
-            padding: 4vw 4vw;
-        }
+    float: right;
+    padding: 4vw 4vw;
+}
         
         .m-result-from {
-            font-family: neon;
-            color: #75faa2;
-            font-size: 8vw;
-        }
+    font-family: neon;
+    color: #75faa2;
+    font-size: 8vw;
+}
         
         .m-result-message {
-            font-family: neon;
-            font-style: italic;
-            font-weight: 500;
-            font-size: 3vw;
-            color: #7b7b7b;
-            margin-top: 1vw;
-        }
+    font-family: neon;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 3vw;
+    color: #7b7b7b;
+    margin-top: 1vw;
+}
         
         .m-result-cont {
-                width: 100%;
-    height: fit-content;
-        }
+    width: 100%;
+    height: 18vw;
+}
         
         .m-result-opened {
-            font-family: neon;
-            color: #75faa2;
-            width: fit-content;
-            margin: auto;
-            margin-right: 0vw;
-            font-size: 3vw;
-        }
+    font-family: neon;
+    color: #75faa2;
+    width: fit-content;
+    margin: auto;
+    margin-right: 0vw;
+    font-size: 3vw;
+}
         
         .m-result-time {
-            font-family: neon;
-            color: #6d6d6d;
-            margin: auto;
-            margin-right: 0vw;
-            font-size: 4vw;
-            margin-top: 1vw;
-        }
+    font-family: neon;
+    color: #6d6d6d;
+    margin: auto;
+    margin-right: 0vw;
+    font-size: 4vw;
+    margin-top: 1vw;
+}
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
